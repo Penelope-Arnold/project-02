@@ -1,14 +1,18 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "SerenCae@aol.com2019",
+=======
+    "password": "rpnd81216",
+>>>>>>> 2e0f68d329f57e9e3f9d6796dfe356eca2e55b47
     "database": "exampledb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "rpnd81216",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
