@@ -10,31 +10,31 @@ $(document).ready(function() {
     // Variable to hold our posts
     var posts;
   
-    // The code below handles the case where we want to get blog posts for a specific author
-    // Looks for a query param in the url for author_id
+    // The code below handles the case where we want to get blog posts for a specific User
+    // Looks for a query param in the url for User_id
     var url = window.location.search;
-    var authorId;
-    if (url.indexOf("?author_id=") !== -1) {
-      authorId = url.split("=")[1];
-      getPosts(authorId);
+    var UserId;
+    if (url.indexOf("?User_id=") !== -1) {
+      UserId = url.split("=")[1];
+      getPosts(UserId);
     }
-    // If there's no authorId we just get all posts as usual
+    // If there's no UserId we just get all posts as usual
     else {
       getPosts();
     }
   
   
     // This function grabs posts from the database and updates the view
-    function getPosts(author) {
-      authorId = author || "";
-      if (authorId) {
-        authorId = "/?author_id=" + authorId;
+    function getPosts(User) {
+      UserId = User || "";
+      if (UserId) {
+        UserId = "/?User_id=" + UserId;
       }
-      $.get("/api/posts" + authorId, function(data) {
+      $.get("/api/posts" + UserId, function(data) {
         console.log("Posts", data);
         posts = data;
         if (!posts || !posts.length) {
-          displayEmpty(author);
+          displayEmpty(User);
         }
         else {
           initializeRows();
@@ -79,9 +79,9 @@ $(document).ready(function() {
       editBtn.addClass("edit btn btn-info");
       var newPostTitle = $("<h2>");
       var newPostDate = $("<small>");
-      var newPostAuthor = $("<h5>");
-      newPostAuthor.text("Written by: " + post.Author.name);
-      newPostAuthor.css({
+      var newPostUser = $("<h5>");
+      newPostUser.text("Written by: " + post.User.name);
+      newPostUser.css({
         float: "right",
         color: "blue",
         "margin-top":
@@ -97,7 +97,7 @@ $(document).ready(function() {
       newPostCardHeading.append(deleteBtn);
       newPostCardHeading.append(editBtn);
       newPostCardHeading.append(newPostTitle);
-      newPostCardHeading.append(newPostAuthor);
+      newPostCardHeading.append(newPostUser);
       newPostCardBody.append(newPostBody);
       newPostCard.append(newPostCardHeading);
       newPostCard.append(newPostCardBody);
@@ -128,7 +128,7 @@ $(document).ready(function() {
       var query = window.location.search;
       var partial = "";
       if (id) {
-        partial = " for Author #" + id;
+        partial = " for User #" + id;
       }
       blogContainer.empty();
       var messageH2 = $("<h2>");
