@@ -16,11 +16,11 @@ button.edit {
   margin: 5px;
 }
 
-.author-container {
+.user-container {
   margin-top: 50px;
 }
 
-.author-list {
+.user-list {
   margin-top: 25px;
 }
 
@@ -36,7 +36,7 @@ button.edit {
   display: none;
 }
 
-#author-name {
+#user-name {
   width: 100%;
   height: 35px;
   margin-top: 5px;

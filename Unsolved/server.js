@@ -1,6 +1,5 @@
 require("dotenv").config();
 var express = require("express");
-var express = require("express");
 
 // Sets up the Express App
 // =============================================================
@@ -20,7 +19,7 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
-require("./routes/author-api-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
 require("./routes/post-api-routes.js")(app);
 
 
@@ -31,4 +30,6 @@ db.sequelize.sync({ force: true }).then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
+
+module.exports = db;
 
