@@ -1,9 +1,12 @@
 require("dotenv").config();
 var express = require("express");
+<<<<<<< HEAD
 var bodyParser = require("body-parser");
 var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
+=======
+>>>>>>> 748f8934196489a51d6edb1111218142fc34ecc5
 
 // Sets up the Express App
 // =============================================================
@@ -29,7 +32,7 @@ app.use(passport.session());
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
-require("./routes/author-api-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
 require("./routes/post-api-routes.js")(app);
 
 
@@ -40,4 +43,6 @@ db.sequelize.sync({ force: true }).then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
+
+module.exports = db;
 
