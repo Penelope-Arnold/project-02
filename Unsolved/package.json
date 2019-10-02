@@ -1,40 +1,37 @@
 {
-  "name": "node-handlebars-boilerplate",
+  "name": "UserAuth_Login",
   "version": "1.0.0",
-  "description": "Project 2 Starter",
-  "main": "server.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "lint": "eslint --quiet .",
-    "fix": "eslint --fix .",
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FOSfaine/UserAuth_Login.git"
+  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FOSfaine/UserAuth_Login/issues"
+  },
+  "homepage": "https://github.com/FOSfaine/UserAuth_Login#readme",
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.19.0",
-    "dotenv": "^8.1.0",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.7.1",
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
+    "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.16.2",
-    "fs": "0.0.1-security",
+    "inquirer": "^7.0.0",
     "mysql2": "^1.7.0",
     "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^5.19.1"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
-    "cross-env": "^5.2.0",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "mocha": "^6.1.4",
-    "prettier": "^1.17.1"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "keywords": [],
-  "author": ""
+    "nodemon": "^1.19.3"
+  }
 }
