@@ -54,7 +54,6 @@ router.post('/register', (req, res) => {
           password2
         });
       } else {
-
         var newUser = {
           name: name,
           email: email,
@@ -62,16 +61,14 @@ router.post('/register', (req, res) => {
         }
 
         db.User.create(newUser).then(user => {
-          // res.redirect('/users/login');
-
           //Hash Password
           bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(user.password, salt, (err, hash) => {
               if (err) throw err;
               //Set password to hashed
               user.password = hash;
-              user
-                .save()
+              //Save user
+              user.save()
                 .then(user => {
                   req.flash(
                     'success_msg',
