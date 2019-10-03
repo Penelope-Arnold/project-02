@@ -103,8 +103,8 @@ router.get('/logout', function (req, res){
 });
 
 // router.get('/logout', (res, req) => {
-//   req.logout()
-//   req.flash('success_msg', 'You are logged out')
+//   req.logout();
+//   req.flash('success_msg', 'You are logged out');
 //   res.redirect('/users/login');
 // });
 

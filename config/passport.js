@@ -1,5 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
+var sequelize = require('sequelize');
 
 // Load User model
 const db = require('../models');
@@ -15,7 +16,7 @@ module.exports = function(passport) {
           return done(null, false, { message: 'That email is not registered' });
         }
 
-        // Match password
+        // Match password: compare password passed in with hashed password stored in database
         bcrypt.compare(password, user.password, (err, isMatch) => {
           if (err) throw err;
           if (isMatch) {
