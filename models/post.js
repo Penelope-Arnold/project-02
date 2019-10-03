@@ -7,22 +7,22 @@ module.exports = function(sequelize, DataTypes) {
     },
     country: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
       len: [1]
     },
     category: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
       len: [1]
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       len: [1]
     },
     photo: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       len: [1]
     }
   });

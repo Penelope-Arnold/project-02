@@ -52,6 +52,13 @@ app.use(passport.session());
 // Connect flash
 app.use(flash());
 
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Static directory
+app.use(express.static("public"));
+
 // Global variables (adding our own custom middleware)
 app.use(function(req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
@@ -61,8 +68,11 @@ app.use(function(req, res, next) {
 });
 
 // Routes
-app.use('/', require('./routes/index'));
-app.use('/users', require('./routes/users'));
+app.use('/', require('./routes/index.js'));
+app.use('/users', require('./routes/users.js'));
+require("./routes/post-api-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
+
 
 const PORT = process.env.PORT || 5000;
 
