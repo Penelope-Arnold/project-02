@@ -1,6 +1,7 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const passport = require('passport');
+const sequelize = require('sequelize');
 const flash = require('connect-flash');
 const session = require('express-session');
 const app = express();
@@ -18,7 +19,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "rpnd81216",
+    password: "SerenCae@aol.com2019",
     database: "blogger"
   });
   
@@ -71,7 +72,6 @@ app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 require("./routes/post-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
-
 
 const PORT = process.env.PORT || 5000;
 
