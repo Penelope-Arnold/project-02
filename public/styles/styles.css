@@ -49,3 +49,8 @@ button.edit {
 #welcome-msg{
   height: 100px;
 }
+
+.post-section{
+  height: 100px;
+  background-color: red;
+}
