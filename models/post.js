@@ -1,29 +1,19 @@
 module.exports = function(sequelize, DataTypes) {
   var Post = sequelize.define("Post", {
     city: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      len: [1]
+      type: DataTypes.TEXT
     },
     country: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      len: [1]
+      type: DataTypes.TEXT
     },
     category: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      len: [1]
+      type: DataTypes.TEXT
     },
     description: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      len: [1]
+      type: DataTypes.STRING
     },
     photo: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      len: [1]
+      type: DataTypes.STRING
     }
   });
 
