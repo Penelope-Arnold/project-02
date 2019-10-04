@@ -19,7 +19,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "SerenCae@aol.com2019",
+    password: "rpnd81216",
     database: "blogger"
   });
   
@@ -76,7 +76,7 @@ require("./routes/user-api-routes.js")(app);
 const PORT = process.env.PORT || 5000;
 
 // Syncing our sequelize models and starting Express app
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
