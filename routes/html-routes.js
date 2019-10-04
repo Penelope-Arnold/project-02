@@ -7,7 +7,7 @@
 var path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
-var isAuthenticated = require("../config/middleware/authentication");
+// var isAuthenticated = require("../config/middleware/authentication");
 
 // Routes
 // =============================================================
@@ -17,22 +17,22 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    res.sendFile(path.join(__dirname, "../views/blog.html"));
   });
 
   // cms route loads cms.html
   app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+    res.sendFile(path.join(__dirname, "../views/cms.html"));
   });
 
   // blog route loads blog.html
   app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    res.sendFile(path.join(__dirname, "../views/blog.html"));
   });
 
   // users route loads user-manager.html
   app.get("/users", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/user-manager.html"));
+    res.sendFile(path.join(__dirname, "../views/user-manager.html"));
   });
 
 };
