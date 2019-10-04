@@ -72,6 +72,7 @@ app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 require("./routes/post-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
+require("./routes/html-routes.js")(app); 
 
 const PORT = process.env.PORT || 5000;
 

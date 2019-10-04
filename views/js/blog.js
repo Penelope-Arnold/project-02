@@ -77,7 +77,7 @@ $(document).ready(function() {
       var editBtn = $("<button>");
       editBtn.text("EDIT");
       editBtn.addClass("edit btn btn-info");
-      var newPostTitle = $("<h2>");
+      var newPostTitle = $("<h2>"); - City
       var newPostDate = $("<small>");
       var newPostUser = $("<h5>");
       newPostUser.text("Written by: " + post.User.name);
@@ -90,13 +90,13 @@ $(document).ready(function() {
       var newPostCardBody = $("<div>");
       newPostCardBody.addClass("card-body");
       var newPostBody = $("<p>");
-      newPostTitle.text(post.title + " ");
+      newPostCity.text(post.title + " ");
       newPostBody.text(post.body);
       newPostDate.text(formattedDate);
-      newPostTitle.append(newPostDate);
+      newPostCity.append(newPostDate);
       newPostCardHeading.append(deleteBtn);
       newPostCardHeading.append(editBtn);
-      newPostCardHeading.append(newPostTitle);
+      newPostCardHeading.append(newPostCity);
       newPostCardHeading.append(newPostUser);
       newPostCardBody.append(newPostBody);
       newPostCard.append(newPostCardHeading);
