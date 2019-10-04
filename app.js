@@ -1,6 +1,7 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const passport = require('passport');
+const sequelize = require('sequelize');
 const flash = require('connect-flash');
 const session = require('express-session');
 const app = express();
@@ -72,11 +73,10 @@ app.use('/users', require('./routes/users.js'));
 require("./routes/post-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 
-
 const PORT = process.env.PORT || 5000;
 
 // Syncing our sequelize models and starting Express app
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

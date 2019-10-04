@@ -29,6 +29,18 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/posts", function(req, res) {
+
+    req.body.UserId = req.user;
+
+    db.Post.create(req.body).then(function(dbPost) {
+      res.json(dbPost);
+    }).catch(err => {
+      console.log(err);
+    });
+  });
+
+
   // Get route for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
@@ -45,11 +57,6 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
-    db.Post.create(req.body).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
 
   // DELETE route for deleting posts
   app.delete("/api/posts/:id", function(req, res) {
