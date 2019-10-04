@@ -1,3 +1,8 @@
+// 1. Create new file named ".env"
+// 2. In the .env file, copy/paste the line below. Replace PASSWORD with your password (no quotes or anything)
+//     DB_PASS=PASSWORD
+// 3. Nobody sees your password, yahoo!
+
 require("dotenv").config();
 var mysql = require("mysql");
 var connection;

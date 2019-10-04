@@ -20,7 +20,7 @@ require("./config/passport")(passport);
 //   host: "localhost",
 //   port: 3306,
 //   user: "root",
-//   password: "penelope1",
+//   password: "",
 //   database: "blogger"
 // });
 
