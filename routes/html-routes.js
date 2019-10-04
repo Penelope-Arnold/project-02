@@ -12,7 +12,6 @@ var path = require("path");
 // Routes
 // =============================================================
 module.exports = function(app) {
-
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   // index route loads view.html
@@ -23,19 +22,18 @@ module.exports = function(app) {
   // cms route loads cms.html
 
   app.get("/home", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/home.html"));
+    res.sendFile(path.join(__dirname, "../views/home.html"));
 
-    //will get all posts from the database 
-
+    //will get all posts from the database
   });
 
   // blog route loads blog.html
   app.get("/profile", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    res.sendFile(path.join(__dirname, "../views/blog.html"));
 
-    //Will grab the users previous posts AND users likes 
+    //Will grab the users previous posts AND users likes
 
-   master
+    master;
   });
 
   // users route loads user-manager.html
@@ -43,4 +41,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../views/user-manager.html"));
   });
 
+  app.get("/users", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/user-manager.html"));
+  });
 };
