@@ -21,13 +21,18 @@ module.exports = function(app) {
   });
 
   // cms route loads cms.html
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+  app.get("/home", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/home.html"));
+
+    //will get all posts from the database 
+
   });
 
   // blog route loads blog.html
-  app.get("/blog", function(req, res) {
+  app.get("/profile", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/blog.html"));
+
+    //Will grab the users previous posts AND users likes 
   });
 
   // users route loads user-manager.html

@@ -1,6 +1,4 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= name %></p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+
 <html lang="en">
 
 <head>
@@ -8,25 +6,29 @@
 	<title>CMS - Express</title>
 	<!-- Latest compiled and minified CSS & JS -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" media="screen" title="no title">
+  <link rel="stylesheet" media="screen" title="no title">
+  <link rel="stylesheet" src="views/styles/styles.css">
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+          ZoomZoom
+        </a>
+        <a class="nav-item active" href="/users/logout" class="btn btn-secondary">Logout</a>
+      </nav>
+  <section id="welcome-msg">
+      <p class="lead mb-3">Welcome <%= name %></p>
+  </section>
 	<div class="container hidden">
-		<div class="row top-30">
-      <div class="col-md-2 col-sm-2">
-        <a class="btn btn-light" href="/blog">Go to Blog</a>
-      </div>
-      <div class="col-md-2 col-sm-2">
-        <a class="btn btn-light" href="/users">Manage Users</a>
-      </div>
-    </div>
 		<div class="row">
-			<div class="col-md-6 offset-md-3">
+      <div class="col-6">
 				<form id="cms">
 					<div class="form-group">
+            <h2>Post a New Trip</h2>
 						<label for="title">City:</label>
 						<input placeholder="Post City" type="text" class="form-control" id="title">
                         <label for="title">Country:</label>
@@ -39,16 +41,13 @@
                         <label for="title">Link to Photo:</label>
                         <input placeholder="Upload Photo" type="text" class="form-control" id="title">
 						<div class="form-group">
-
-							
-						</div>
 						<br />
 						<button type="submit" class="btn btn-success submit">Submit</button>
 					</div>
 				</form>
-			</div>
-		</div>
-	</div>
+      </div>
+    </div>
+  </div>
 	<!-- Custom Script -->
     <script type="text/javascript">
     $(document).ready(function() {
