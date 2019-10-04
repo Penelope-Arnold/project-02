@@ -7,7 +7,7 @@
 var path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
-var isAuthenticated = require("../config/middleware/authentication");
+// var isAuthenticated = require("../config/middleware/authentication");
 
 // Routes
 // =============================================================
@@ -17,10 +17,11 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    res.sendFile(path.join(__dirname, "../views/blog.html"));
   });
 
   // cms route loads cms.html
+
   app.get("/home", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/home.html"));
 
@@ -33,11 +34,13 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/blog.html"));
 
     //Will grab the users previous posts AND users likes 
+
+   master
   });
 
   // users route loads user-manager.html
   app.get("/users", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/user-manager.html"));
+    res.sendFile(path.join(__dirname, "../views/user-manager.html"));
   });
 
 };
