@@ -1,13 +1,14 @@
-$(document).ready(function() {
+ $(document).ready(function() {
   // Getting jQuery references to the post body, title, form, and user select
   var cityInput = $("#city");
   var countryInput = $("#country");
   var categoryInput = $("#category");
   var descriptionInput = $("#description");
   var photoInput = $("#photo");
-  var cmsForm = $("#cms");
+  var postForm = $("#post-form");
+  var userSelect = $("#user");
   // Adding an event listener for when the form is submitted
-  $(cmsForm).on("submit", handleFormSubmit);
+  $(postForm).on("submit-post", handleFormSubmit);
   // Gets the part of the url that comes after the "?" (which we have if we're updating a post)
   var url = window.location.search;
   var postId;
@@ -27,13 +28,13 @@ $(document).ready(function() {
   }
 
   // Getting the users, and their posts
-  getUsers();
+//   getUsers();
 
   // A function for handling what happens when the form to create a new post is submitted
   function handleFormSubmit(event) {
     event.preventDefault();
-    // Wont submit the post if we are missing a body, title, or user
-    if (!cityInput.val().trim() || !countryInput.val().trim() || !categoryInput.val().trim() ||!descriptionInput.val().trim() || !photoInput.val().trim() ||!userSelect.val()) {
+    // Wont submit the post if we are missing a city, country, or category
+    if (!cityInput.val() || !countryInput.val() || !categoryInput.val() ||!descriptionInput.val() || !photoInput.val()) {
       return;
     }
     // Constructing a newPost object to hand to the database
@@ -53,7 +54,7 @@ $(document).ready(function() {
       photo: photoInput
         .val()
         .trim(),
-      UserId: userSelect.val()
+    //   UserId: userSelect.val()
 
     };
 
@@ -71,7 +72,7 @@ $(document).ready(function() {
   // Submits a new post and brings user to blog page upon completion
   function submitPost(post) {
     $.post("/api/posts", post, function() {
-      window.location.href = "/blog";
+      window.location.href = "/dashboard";
     });
   }
 
@@ -79,11 +80,11 @@ $(document).ready(function() {
   function getPostData(id, type) {
     var queryUrl;
     switch (type) {
-    case "post":
-      queryUrl = "/api/posts/" + id;
+    case "user-post":
+      queryUrl = "/dashboard" + id;
       break;
-    case "user":
-      queryUrl = "/api/users/" + id;
+    case "home-post":
+      queryUrl = "/allTrips" + id;
       break;
     default:
       return;
@@ -91,59 +92,16 @@ $(document).ready(function() {
     $.get(queryUrl, function(data) {
       if (data) {
         console.log(data.UserId || data.id);
-        // If this post exists, prefill our cms forms with its data
         cityInput.val(data.city);
         countryInput.val(data.country);
         categoryInput.val(data.category); 
         descriptionInput.val(data.description);
         photoInput.val(data.photo);
-        userId = data.UserId || data.id;
+        // userId = data.UserId || data.id;
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit
-        updating = true;
+        updating = true;      
       }
     });
   }
-
-  // A function to get Users and then render our list of Users
-  function getUsers() {
-    $.get("/api/users", renderUserList);
-  }
-  // Function to either render a list of users, or if there are none, direct the user to the page
-  // to create an user first
-  function renderUserList(data) {
-    if (!data.length) {
-      window.location.href = "/users";
-    }
-    $(".hidden").removeClass("hidden");
-    var rowsToAdd = [];
-    for (var i = 0; i < data.length; i++) {
-      rowsToAdd.push(createUserRow(data[i]));
-    }
-    userSelect.empty();
-    console.log(rowsToAdd);
-    console.log(userSelect);
-    userSelect.append(rowsToAdd);
-    userSelect.val(userId);
-  }
-
-  // Creates the user options in the dropdown
-  function createUserRow(user) {
-    var listOption = $("<option>");
-    listOption.attr("value", user.id);
-    listOption.text(user.name);
-    return listOption;
-  }
-
-  // Update a given post, bring user to the blog page when done
-  function updatePost(post) {
-    $.ajax({
-      method: "PUT",
-      url: "/api/posts",
-      data: post
-    })
-      .then(function() {
-        window.location.href = "/blog";
-      });
-  }
-});
+  })
