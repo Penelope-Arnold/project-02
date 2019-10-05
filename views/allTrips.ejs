@@ -60,12 +60,12 @@
   </ul>
 
   <script>
-    // $(document).on("load", function() {
-    //   $.get("/api/posts", function(data) {
-    //     // log the data to our console
-    //     console.log(data);
-    //   });
-    // });
+    $(document).on("load", function() {
+      $.get("/api/posts", function(data) {
+        // log the data to our console
+        console.log(data);
+      });
+    });
 
     var image;
 
@@ -76,6 +76,13 @@
       image.attr("id", i);
       image.attr("style", "padding: 10px");
       $(".mostPopular").append(image);
+
+      function test() {
+        $.get("/api/posts", function(data) {
+          // log the data to our console
+          console.log(data);
+        });
+      }
     }
 
     for (var i = 1; i < 8; i++) {
