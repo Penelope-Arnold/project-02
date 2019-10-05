@@ -62,7 +62,7 @@ require("./routes/user-api-routes.js")(app);
 const PORT = process.env.PORT || 5000;
 
 // Syncing our sequelize models and starting Express app
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

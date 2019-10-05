@@ -11,7 +11,6 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app) {
-
   // GET route for getting all of the posts
   app.get("/api/posts", function(req, res) {
     var query = {};
@@ -30,16 +29,16 @@ module.exports = function(app) {
   });
 
   app.post("/api/posts", function(req, res) {
-
     req.body.UserId = req.user;
 
-    db.Post.create(req.body).then(function(dbPost) {
-      res.json(dbPost);
-    }).catch(err => {
-      console.log(err);
-    });
+    db.Post.create(req.body)
+      .then(function(dbPost) {
+        res.json(dbPost);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   });
-
 
   // Get route for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
@@ -71,13 +70,11 @@ module.exports = function(app) {
 
   // PUT route for updating posts
   app.put("/api/posts", function(req, res) {
-    db.Post.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbPost) {
+    db.Post.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbPost) {
       res.json(dbPost);
     });
   });

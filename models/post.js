@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Post = sequelize.define("Post", {
     city: {
-      type: DataTypes.TEXT
+      type: DataTypes.STRING
     },
     country: {
       type: DataTypes.TEXT
