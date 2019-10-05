@@ -1,29 +1,23 @@
+<html lang="en">
 <head>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
-  />
-  <link
-    href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet"
-  />
-  <script
-    type="text/javascript"
-    src="https://code.jquery.com/jquery-2.1.1.min.js"
-  ></script>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <link rel="stylesheet" href="/views//styles/styles.css" />
+  <!-- <link rel="stylesheet" href="/public/styles/styles.css" /> -->
 </head>
 
 <body>
+<div class="w3-container"> 
+
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Home</a>
+        <a href="#" class="brand-logo">Trips</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">My Profile</a></li>
-          <li><a href="#">Logout</a></li>
+          <li id=profileBtn><a href="/dashboard">My Profile</a></li>
+          <li id=loginBtn><a href="/users/login">Login</a></li>
+          <li id=logoutBtn><a href="/users/logout">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -54,4 +48,6 @@
   </ul>
 
   <script type="text/javascript" src="/views/js/allTrips.js"></script>
+</div>
 </body>
+</html>
