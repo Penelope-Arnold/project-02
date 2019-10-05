@@ -1,7 +1,7 @@
 {
   "name": "project-02",
   "version": "1.0.0",
-  "description": "",
+  "description": "In this activity we will add the provided boilerplate to group project repos.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -19,17 +19,20 @@
   },
   "homepage": "https://github.com/FOSfaine/UserAuth_Login#readme",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
+    "dotenv": "^8.1.0",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.16.2",
     "inquirer": "^7.0.0",
+    "mysql": "^2.17.1",
     "mysql2": "^1.7.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.19.1"
+    "sequelize": "^5.19.2"
   },
   "devDependencies": {
     "nodemon": "^1.19.3"

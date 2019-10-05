@@ -98,13 +98,13 @@ router.post('/login', (req, res, next) => {
 //Logout Handle
 router.get('/logout', function (req, res){
   req.session.destroy(function (err) {
-    res.redirect('/users/login');
+   res.redirect('/users/login');
   });
 });
 
 // router.get('/logout', (res, req) => {
 //   req.logout()
-//   // req.flash('success_msg', 'You are logged out')
+//   req.flash('success_msg', 'You are logged out')
 //   res.redirect('/users/login');
 // });
 
