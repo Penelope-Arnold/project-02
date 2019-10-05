@@ -22,7 +22,7 @@
         <a class="nav-item active" href="/users/logout" class="btn btn-secondary">Logout</a>
       </nav>
   <section id="welcome-msg">
-      <p class="lead mb-3">Welcome <%= name %></p>
+      <p class="lead mb-3">Welcome <%= name %> !</p>
   </section>
   <br>
 		<div class="row">
@@ -162,7 +162,7 @@
   // Submits a new post and brings user to blog page upon completion
   function submitPost(post) {
     $.post("/api/posts", post, function() {
-      window.location.href = "/dashboard";
+      window.location.href = "/blog";
     });
   }
 

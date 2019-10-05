@@ -31,7 +31,7 @@ $(document).ready(function() {
         UserId = "/?User_id=" + UserId;
       }
       $.get("/api/posts" + UserId, function(data) {
-        console.log("Posts", data);
+        // console.log("Posts", data);
         posts = data;
         if (!posts || !posts.length) {
           displayEmpty(User);
