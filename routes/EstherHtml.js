@@ -4,7 +4,7 @@ const flash = require("connect-flash");
 const { ensureAuthenticated } = require("../config/auth");
 const db = require("../models");
 //Welcome page
-router.get("/", (req, res) => res.render("Welcome"));
+router.get("/", (req, res) => res.render("allTrips"));
 
 //Dashboard
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
