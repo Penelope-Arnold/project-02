@@ -15,7 +15,7 @@ connection = mysql.createConnection({
   port: 3306,
   user: "root",
   password: process.env.DB_PASS,
-  database: "burgers_db"
+  database: "blogger"
 });
 // }
 
@@ -34,7 +34,7 @@ module.exports = connection;
 //Create Connection to database with Sequelize
 var Sequelize = require("sequelize");
 
-var sequelize = new Sequelize("images_db", "root", "Altringer9(", {
+var sequelize = new Sequelize("blogger", "root", process.env.DB_PASS, {
   host: "localhost",
   port: 3306,
   dialect: "mysql"

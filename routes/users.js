@@ -98,7 +98,7 @@ router.post('/login', (req, res, next) => {
 //Logout Handle
 router.get('/logout', function (req, res){
   req.session.destroy(function (err) {
-    res.redirect('/users/login');
+   res.redirect('/users/login');
   });
 });
 

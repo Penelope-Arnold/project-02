@@ -1,7 +1,7 @@
 {
   "name": "project-02",
   "version": "1.0.0",
-  "description": "",
+  "description": "In this activity we will add the provided boilerplate to group project repos.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -28,6 +28,7 @@
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.16.2",
     "inquirer": "^7.0.0",
+    "mysql": "^2.17.1",
     "mysql2": "^1.7.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",

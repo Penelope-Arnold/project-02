@@ -1,7 +1,6 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const passport = require("passport");
-const sequelize = require("sequelize");
 const flash = require("connect-flash");
 const session = require("express-session");
 const app = express();
@@ -13,23 +12,6 @@ var db = require("./models");
 
 // Passport Config
 require("./config/passport")(passport);
-
-// Connect to MySql
-// **** PG - Can be deleted now. Replaced with 'connection.js' (lines 30+ define 'sequelize')) *** //
-// var connection = mysql.createConnection({
-//   host: "localhost",
-//   port: 3306,
-//   user: "root",
-//   password: "",
-//   database: "blogger"
-// });
-
-// //Connect to MySql
-// connection.connect(function(err) {
-//   if (err) throw err;
-//   console.log("Connected to localhost 3306");
-// });
-// **** PG - Can be deleted now. Replaced with 'connection.js' (lines 30+ define 'sequelize')) *** //
 
 // EJS
 app.use(expressLayouts);
@@ -70,8 +52,9 @@ app.use(function(req, res, next) {
 });
 
 // Routes
-app.use("/", require("./routes/index.js"));
+app.use("/", require("./routes/EstherHtml.js"));
 app.use("/users", require("./routes/users.js"));
+// app.use("/index", require("./routes/EstherHtml.js"));
 require("./routes/post-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
@@ -84,5 +67,3 @@ db.sequelize.sync({ force: false }).then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
-
-// app.listen(PORT, console.log(`Server started on port ${PORT}`));
