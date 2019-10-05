@@ -90,7 +90,7 @@ $(document).ready(function() {
     }
     $.get(queryUrl, function(data) {
       if (data) {
-        console.log(data.UserId || data.id);
+        // console.log(data.UserId || data.id);
         // If this post exists, prefill our cms forms with its data
         cityInput.val(data.city);
         countryInput.val(data.country);
@@ -121,8 +121,8 @@ $(document).ready(function() {
       rowsToAdd.push(createUserRow(data[i]));
     }
     userSelect.empty();
-    console.log(rowsToAdd);
-    console.log(userSelect);
+    // console.log(rowsToAdd);
+    // console.log(userSelect);
     userSelect.append(rowsToAdd);
     userSelect.val(userId);
   }
