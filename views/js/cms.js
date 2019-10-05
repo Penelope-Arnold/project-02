@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  // Getting jQuery references to the post body, title, form, and user select
+  Getting jQuery references to the post body, title, form, and user select
   var cityInput = $("#city");
   var countryInput = $("#country");
   var categoryInput = $("#category");
@@ -16,7 +16,7 @@ $(document).ready(function() {
   var updating = false;
 
   // If we have this section in our url, we pull out the post id from the url
-  // In '?post_id=1', postId is 1
+  In '?post_id=1', postId is 1
   if (url.indexOf("?post_id=") !== -1) {
     postId = url.split("=")[1];
     getPostData(postId, "post");
@@ -90,7 +90,7 @@ $(document).ready(function() {
     }
     $.get(queryUrl, function(data) {
       if (data) {
-        // console.log(data.UserId || data.id);
+        console.log(data.UserId || data.id);
         // If this post exists, prefill our cms forms with its data
         cityInput.val(data.city);
         countryInput.val(data.country);
@@ -121,8 +121,8 @@ $(document).ready(function() {
       rowsToAdd.push(createUserRow(data[i]));
     }
     userSelect.empty();
-    // console.log(rowsToAdd);
-    // console.log(userSelect);
+    console.log(rowsToAdd);
+    console.log(userSelect);
     userSelect.append(rowsToAdd);
     userSelect.val(userId);
   }
