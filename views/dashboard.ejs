@@ -146,7 +146,6 @@
         .val()
         .trim(),
     //   UserId: userSelect.val()
-
     };
 
     // If we're updating a post run updatePost to update a post
@@ -163,7 +162,7 @@
   // Submits a new post and brings user to blog page upon completion
   function submitPost(post) {
     $.post("/api/posts", post, function() {
-      window.location.href = "/dsahboard";
+      window.location.href = "/dashboard";
     });
   }
 
