@@ -1,3 +1,10 @@
+// $(document).on("load", function() {
+//   $.get("/api/posts", function(data) {
+//     // log the data to our console
+//     console.log(data);
+//   });
+// });
+
 var image;
 
 for (var i = 1; i < 5; i++) {
