@@ -163,7 +163,7 @@
   // Submits a new post and brings user to blog page upon completion
   function submitPost(post) {
     $.post("/api/posts", post, function() {
-      window.location.href = "/blog";
+      window.location.href = "/dsahboard";
     });
   }
 
@@ -182,7 +182,7 @@
     }
     $.get(queryUrl, function(data) {
       if (data) {
-        console.log(data.UserId || data.id);
+        // console.log(data.UserId || data.id);
         // If this post exists, prefill our cms forms with its data
         cityInput.val(data.city);
         countryInput.val(data.country);

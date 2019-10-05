@@ -65,7 +65,7 @@ $(document).ready(function() {
       userList.children().not(":last").remove();
       userContainer.children(".alert").remove();
       if (rows.length) {
-        console.log(rows);
+        // console.log(rows);
         userList.prepend(rows);
       }
       else {
