@@ -34,7 +34,7 @@ module.exports = connection;
 //Create Connection to database with Sequelize
 var Sequelize = require("sequelize");
 
-var sequelize = new Sequelize("blogger", "root", "SerenCae@aol.com2019", {
+var sequelize = new Sequelize("blogger", "root", process.env.DB_PASS, {
   host: "localhost",
   port: 3306,
   dialect: "mysql"
