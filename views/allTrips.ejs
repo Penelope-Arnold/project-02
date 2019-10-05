@@ -1,37 +1,33 @@
 <head>
-  <script
-    type="text/javascript"
-    src="https://code.jquery.com/jquery-2.1.1.min.js"
-  ></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
   />
-
   <link
     href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet"
   />
-
-  <link rel="stylesheet" href="/views//styles/styles.css" type="text/ejs" />
+  <script
+    type="text/javascript"
+    src="https://code.jquery.com/jquery-2.1.1.min.js"
+  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="/views//styles/styles.css" />
 </head>
 
 <body>
-  <!-- <div class="navbar-fixed"> -->
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo left">Home</a>
-      <ul id="nav-mobile" class="right">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">My Profile</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-    </div>
-  </nav>
-  <!-- </div> -->
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Home</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">My Profile</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
   <h3>Most Popular!</h3>
   <div class="mostPopular"></div>
@@ -39,39 +35,23 @@
   <ul class="collapsible">
     <li>
       <div class="collapsible-header">
-        <!-- <i class="material-icons">filter_drama</i> -->
-        Asia!
+        <i class="material-icons">filter_drama</i>Asia!
       </div>
-      <div class="collapsible-body"><span class="japan"></span></div>
+      <div class="collapsible-body"><span class="asia"></span></div>
     </li>
     <li>
       <div class="collapsible-header">
-        <!-- <i class="material-icons">place</i> -->
-        Europe!
+        <i class="material-icons">place</i>Europe!
+      </div>
+      <div class="collapsible-body"><span class="europe"></span></div>
+    </li>
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons">whatshot</i>Australia!
       </div>
       <div class="collapsible-body"><span class="australia"></span></div>
-    </li>
-    <li>
-      <div class="collapsible-header">
-        <!-- <i class="material-icons">whatshot</i> -->
-        Australia!
-      </div>
-      <div class="collapsible-body"><span class="usa"></span></div>
     </li>
   </ul>
 
   <script type="text/javascript" src="/views/js/allTrips.js"></script>
-
-  <script>
-    $.get("/api/posts", function(response) {
-      for (var i = 0; i < response.length; i++) {
-        var image = $("<img>");
-        image.attr("src", response[i].photo);
-        image.attr("class", "tripImage");
-        image.attr("id", i);
-        image.attr("style", "padding: 10px");
-        $(".mostPopular").append(image);
-      }
-    });
-  </script>
 </body>

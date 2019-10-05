@@ -2,7 +2,7 @@ $(document).ready(function() {
     /* global moment */
   
     // blogContainer holds all of our posts
-    var blogContainer = $(".blog-container");
+    var postContainer = $(".post-container");
     var postCategorySelect = $("#category");
     // Click events for the edit and delete buttons
     $(document).on("click", "button.delete", handlePostDelete);
@@ -30,8 +30,8 @@ $(document).ready(function() {
       if (UserId) {
         UserId = "/?User_id=" + UserId;
       }
-      $.get("/api/posts" + UserId, function(data) {
-        // console.log("Posts", data);
+      $.get("/api/dashboard" + UserId, function(data) {
+        //console.log("Posts", data);
         posts = data;
         if (!posts || !posts.length) {
           displayEmpty(User);
@@ -46,7 +46,7 @@ $(document).ready(function() {
     function deletePost(id) {
       $.ajax({
         method: "DELETE",
-        url: "/api/posts/" + id
+        url: "/api/dashboard" + id
       })
         .then(function() {
           getPosts(postCategorySelect.val());
@@ -55,12 +55,12 @@ $(document).ready(function() {
   
     // InitializeRows handles appending all of our constructed post HTML inside blogContainer
     function initializeRows() {
-      blogContainer.empty();
+      postContainer.empty();
       var postsToAdd = [];
       for (var i = 0; i < posts.length; i++) {
         postsToAdd.push(createNewRow(posts[i]));
       }
-      blogContainer.append(postsToAdd);
+      postContainer.append(postsToAdd);
     }
   
     // This function constructs a post's HTML
@@ -77,16 +77,14 @@ $(document).ready(function() {
       var editBtn = $("<button>");
       editBtn.text("EDIT");
       editBtn.addClass("edit btn btn-info");
-      var newPostTitle = $("<h2>"); - City
+      var newPostTitle = $("<h2>"); + City
       var newPostDate = $("<small>");
       var newPostUser = $("<h5>");
       newPostUser.text("Written by: " + post.User.name);
-      newPostUser.css({
-        float: "right",
-        color: "blue",
-        "margin-top":
-        "-10px"
-      });
+      
+
+
+
       var newPostCardBody = $("<div>");
       newPostCardBody.addClass("card-body");
       var newPostBody = $("<p>");
@@ -120,7 +118,7 @@ $(document).ready(function() {
         .parent()
         .parent()
         .data("post");
-      window.location.href = "/cms?post_id=" + currentPost.id;
+      window.location.href = "/dashbard?post_id=" + currentPost.id;
     }
   
     // This function displays a message when there are no posts
