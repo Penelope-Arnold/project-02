@@ -3,6 +3,8 @@ $(document).ready(function() {
 console.log("js is running for display");
   // blogContainer holds all of our posts
   var postContainer = $("#post-container");
+  postContainer.addClass("overflow-auto")
+  // postContainer.ccs({"height": "290px"});
   var postCategorySelect = $("#category");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
@@ -30,7 +32,7 @@ console.log("js is running for display");
     if (UserId) {
       UserId = "/?User_id=" + UserId;
     }
-    $.get("/api/post" + UserId, function(data) {
+    $.get("/api/posts" + UserId, function(data) {
       //console.log("Posts", data);
       posts = data;
       if (!posts || !posts.length) {
@@ -46,7 +48,7 @@ console.log("js is running for display");
   function deletePost(id) {
     $.ajax({
       method: "DELETE",
-      url: "/api/post" + id
+      url: "/api/posts" + id
     })
       .then(function() {
         getPosts(postCategorySelect.val());
@@ -77,9 +79,11 @@ console.log("js is running for display");
     var editBtn = $("<button>");
     editBtn.text("EDIT");
     editBtn.addClass("edit btn btn-info");
-    var newPostTitle = $("<h2>"); + City
+    var newPostTitle = $("<h5>");
     var newPostDate = $("<small>");
-    var newPostUser = $("<h5>");
+    var newPostUser = $("<p>");
+    var newPostPhoto = $("<img>");
+    newPostPhoto.attr("src");
     newPostUser.text("Written by: " + post.User.name);
     
 
@@ -88,13 +92,14 @@ console.log("js is running for display");
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
-    newPostCity.text(post.title + " ");
-    newPostBody.text(post.body);
+    newPostTitle.text(post.city + " ");
+    newPostBody.text(post.description);
+    newPostPhoto.append("src", post.photo);
     newPostDate.text(formattedDate);
-    newPostCity.append(newPostDate);
+    newPostTitle.append(newPostDate);
     newPostCardHeading.append(deleteBtn);
     newPostCardHeading.append(editBtn);
-    newPostCardHeading.append(newPostCity);
+    newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostUser);
     newPostCardBody.append(newPostBody);
     newPostCard.append(newPostCardHeading);
