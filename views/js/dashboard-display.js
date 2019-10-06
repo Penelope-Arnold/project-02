@@ -83,6 +83,7 @@ $(document).ready(function() {
     var newPostDate = $("<small>");
     var newPostUser = $("<p>");
     var newPostPhoto = $("<img>");
+    newPostPhoto.addClass("img-fluid");
     newPostPhoto.attr("src", post.photo);
     newPostUser.text("Written by: " + post.User.name);
 
