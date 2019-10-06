@@ -10,6 +10,7 @@ var connection;
 // if (process.env.JAWSDB_URL) {
 //   connection = mysql.createConnection(process.env.JAWSDB_URL);
 // } else {
+<<<<<<< HEAD
 
 // console.log(process.env.DB_PASS);
 // if (process.env.JAWSDB_URL) {
@@ -23,6 +24,17 @@ var connection;
   database: "blogger"
 });
 
+=======
+  console.log(process.env.DB_PASS);
+  connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: process.env.DB_PASS,
+    database: "blogger"
+  });
+// }
+>>>>>>> 777fbf38eca5c3d7c18f240079361f3baf107c46
 
 // Make connection.
 connection.connect(function(err) {
