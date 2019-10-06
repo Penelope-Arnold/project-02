@@ -9,7 +9,7 @@ $(document).ready(function() {
   // Click events for the edit and delete buttons
 
   $(document).on("click", "button.delete", handlePostDelete);
-  $(document).on("click", "button.edit", handlePostEdit);
+  // $(document).on("click", "button.edit", handlePostEdit);
   // Variable to hold our posts
   var posts;
 
@@ -63,15 +63,14 @@ $(document).ready(function() {
     postContainer.append(postsToAdd);
   }
 
+  
   // This function constructs a post's HTML
   function createNewRow(post) {
+    console.log("this is the photo", post.photo);
     var formattedDate = new Date(post.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     var newPostCard = $("<div>");
-    newPostCard.addClass("card mb-3");
-    newPostCard.css({
-      width: "100%"
-    });
+    newPostCard.addClass("card");
     var newPostCardHeading = $("<div>");
     newPostCardHeading.addClass("card-title");
     var likeBTn = $("<button>");
@@ -83,7 +82,12 @@ $(document).ready(function() {
     var newPostDate = $("<small>");
     var newPostUser = $("<p>");
     var newPostPhoto = $("<img>");
+<<<<<<< HEAD
     newPostPhoto.addClass("img-fluid");
+=======
+    newPostPhoto.addClass("img-fluid")
+
+>>>>>>> b2558cfea0c8983707addaf02a332ab6f3d6fd43
     newPostPhoto.attr("src", post.photo);
     newPostUser.text("Written by: " + post.User.name);
 
@@ -91,26 +95,26 @@ $(document).ready(function() {
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
     newPostTitle.text(post.city + " ");
-    newPostBody.text(post.description);
-
+    
     ///
     newPostPhoto.append(post.photo);
-
     ///
+    newPostBody.text(post.description);
+    ////
     newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(likeBTn);
     //newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostUser);
-    newPostCardBody.append(newPostBody);
     newPostCardBody.append(newPostPhoto);
+    newPostCardBody.append(newPostBody);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
     newPostCard.data("post", post);
     return newPostCard;
   }
-
+  
   // This function figures out which post we want to delete and then calls deletePost
   function handlePostDelete() {
     var currentPost = $(this)
