@@ -1,8 +1,6 @@
-# Project Starter
+# Zoom
 
-In this activity we will add the provided boilerplate to group project repos.
-
-## Instructions
+As a user you are able to create an account login and post your trips to be saved to your own unique user profile. You are also able to see the many posts of other users and save them as future trips you would like to go on. 
 
 * Only one member of each group should complete this activity while the others watch.
 
