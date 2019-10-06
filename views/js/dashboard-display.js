@@ -1,6 +1,7 @@
 $(document).ready(function() {
   /* global moment */
 console.log("js is running for display");
+
   // blogContainer holds all of our posts
   var postContainer = $("#post-container");
   postContainer.addClass("overflow-auto")
@@ -67,15 +68,13 @@ console.log("js is running for display");
 
   // This function constructs a post's HTML
   function createNewRow(post) {
+    console.log("this is the photo", post.photo);
     var formattedDate = new Date(post.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     var newPostCard = $("<div>");
-    newPostCard.addClass("card mb-3");
-    newPostCard.css({
-      width: "100%"
-    });
+    newPostCard.addClass("card");
     var newPostCardHeading = $("<div>");
-    newPostCardHeading.addClass("card-title");
+    newPostCardHeading.addClass("card-header");
     var deleteBtn = $("<button>");
     deleteBtn.text("x");
     deleteBtn.addClass("delete btn btn-danger");
@@ -85,7 +84,7 @@ console.log("js is running for display");
     var newPostTitle = $("<h5>");
     var newPostDate = $("<small>");
     var newPostUser = $("<p>");
-    var newPostPhoto = $("<img>");
+    var newPostPhoto = $("<p>");
     newPostPhoto.attr("src");
     newPostUser.text("Written by: " + post.User.name);
     
@@ -101,16 +100,17 @@ console.log("js is running for display");
     newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(deleteBtn);
-    //newPostCardHeading.append(editBtn);
+    // newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostUser);
     newPostCardBody.append(newPostBody);
+    // newPostCardBody.append(newPostPhoto);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
     newPostCard.data("post", post);
     return newPostCard;
   }
-
+  
   // This function figures out which post we want to delete and then calls deletePost
   function handlePostDelete() {
     var currentPost = $(this)
