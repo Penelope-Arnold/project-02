@@ -20,3 +20,10 @@ $.get("/api/posts", function(response) {
     }
   }
 });
+
+// $(document).on("click", "button.red", addBgrnd);
+
+// function addBgrnd() {
+//   console.log("yes");
+//   $(this).css("background-color", "red");
+// }
