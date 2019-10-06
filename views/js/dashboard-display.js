@@ -63,6 +63,7 @@ $(document).ready(function() {
     postContainer.append(postsToAdd);
   }
 
+  
   // This function constructs a post's HTML
   function createNewRow(post) {
     console.log("this is the photo", post.photo);
@@ -81,6 +82,8 @@ $(document).ready(function() {
     var newPostDate = $("<small>");
     var newPostUser = $("<p>");
     var newPostPhoto = $("<img>");
+    newPostPhoto.addClass("img-fluid")
+
     newPostPhoto.attr("src", post.photo);
     newPostUser.text("Written by: " + post.User.name);
 
@@ -88,20 +91,20 @@ $(document).ready(function() {
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
     newPostTitle.text(post.city + " ");
-    newPostBody.text(post.description);
-
+    
     ///
     newPostPhoto.append(post.photo);
-
     ///
+    newPostBody.text(post.description);
+    ////
     newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(likeBTn);
     //newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostUser);
-    newPostCardBody.append(newPostBody);
     newPostCardBody.append(newPostPhoto);
+    newPostCardBody.append(newPostBody);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
     newPostCard.data("post", post);
