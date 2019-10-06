@@ -19,7 +19,7 @@ for (var i = 1; i < 5; i++) {
     alert(i);
   });
 }
-
+console.log("all trips JS")
 for (var i = 1; i < 8; i++) {
   image = $("<img>");
   image.attr("src", "http://lorempixel.com/250/250/nature/" + i);
