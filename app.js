@@ -43,7 +43,7 @@ app.use(express.json());
 // Static directory
 // app.use(express.static("public"));
 
-app.use("/views", express.static('views'))
+app.use("/views", express.static("views"));
 
 // Global variables (adding our own custom middleware)
 app.use(function(req, res, next) {
@@ -61,7 +61,7 @@ require("./routes/post-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 //require("./routes/html-routes.js")(app);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3306;
 
 // Syncing our sequelize models and starting Express app
 db.sequelize.sync({ force: false }).then(function() {
