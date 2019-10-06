@@ -1,12 +1,13 @@
 $(document).ready(function() {
   /* global moment */
-console.log("js is running for display");
+  console.log("js is running for display");
   // blogContainer holds all of our posts
   var postContainer = $("#post-container");
-  postContainer.addClass("overflow-auto")
+  postContainer.addClass("overflow-auto");
   // postContainer.ccs({"height": "290px"});
   var postCategorySelect = $("#category");
   // Click events for the edit and delete buttons
+
   $(document).on("click", "button.delete", handlePostDelete);
   $(document).on("click", "button.edit", handlePostEdit);
   // Variable to hold our posts
@@ -25,7 +26,6 @@ console.log("js is running for display");
     getPosts();
   }
 
-
   // This function grabs posts from the database and updates the view
   function getPosts(User) {
     UserId = User || "";
@@ -37,8 +37,7 @@ console.log("js is running for display");
       posts = data;
       if (!posts || !posts.length) {
         displayEmpty(User);
-      }
-      else {
+      } else {
         initializeRows();
       }
     });
@@ -49,10 +48,9 @@ console.log("js is running for display");
     $.ajax({
       method: "DELETE",
       url: "/api/posts" + id
-    })
-      .then(function() {
-        getPosts(postCategorySelect.val());
-      });
+    }).then(function() {
+      getPosts(postCategorySelect.val());
+    });
   }
 
   // InitializeRows handles appending all of our constructed post HTML inside blogContainer
@@ -76,9 +74,8 @@ console.log("js is running for display");
     });
     var newPostCardHeading = $("<div>");
     newPostCardHeading.addClass("card-title");
-    var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
+    var likeBTn = $("<button>");
+    likeBTn.addClass("glyphicon glyphicon-heart-empty red");
     var editBtn = $("<button>");
     editBtn.text("EDIT");
     editBtn.addClass("edit btn btn-info");
@@ -86,25 +83,27 @@ console.log("js is running for display");
     var newPostDate = $("<small>");
     var newPostUser = $("<p>");
     var newPostPhoto = $("<img>");
-    newPostPhoto.attr("src");
+    newPostPhoto.attr("src", post.photo);
     newPostUser.text("Written by: " + post.User.name);
-    
-
-
 
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
     newPostTitle.text(post.city + " ");
     newPostBody.text(post.description);
-    newPostPhoto.append("src", post.photo);
+
+    ///
+    newPostPhoto.append(post.photo);
+
+    ///
     newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
-    newPostCardHeading.append(deleteBtn);
+    newPostCardHeading.append(likeBTn);
     //newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostUser);
     newPostCardBody.append(newPostBody);
+    newPostCardBody.append(newPostPhoto);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
     newPostCard.data("post", post);
@@ -139,9 +138,13 @@ console.log("js is running for display");
     blogContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No posts yet" + partial + ", navigate <a href='/cms" + query +
-    "'>here</a> in order to get started.");
+    messageH2.html(
+      "No posts yet" +
+        partial +
+        ", navigate <a href='/cms" +
+        query +
+        "'>here</a> in order to get started."
+    );
     blogContainer.append(messageH2);
   }
-
 });
