@@ -8,7 +8,7 @@ console.log("js is running for display");
   var postCategorySelect = $("#category");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
-  $(document).on("click", "button.edit", handlePostEdit);
+  // $(document).on("click", "button.edit", handlePostEdit);
   // Variable to hold our posts
   var posts;
 
@@ -98,7 +98,7 @@ console.log("js is running for display");
     newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(deleteBtn);
-    newPostCardHeading.append(editBtn);
+    // newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostUser);
     newPostCardBody.append(newPostBody);
