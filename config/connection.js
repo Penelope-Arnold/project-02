@@ -35,15 +35,11 @@ module.exports = connection;
 //Create Connection to database with Sequelize
 var Sequelize = require("sequelize");
 
-if (process.env.JAWSDB_URL) {
-  sequelize = new Sequelize(mysql.createConnection(process.env.JAWSDB_URL));
-} else {
-  var sequelize = new Sequelize("blogger", "root", process.env.DB_PASS, {
-    host: "localhost",
-    port: 3306,
-    dialect: "mysql"
-  });
-}
+  var sequelize = new Sequelize("imh1whbm6zy1h310", "y0oer6sd4wtdtjdm", "dqvlrliure82or5q", {
+  host: "s3lkt7lynu0uthj8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+  port: 3306,
+  dialect: "mysql"
+});
 
 //export object
 module.exports = sequelize;
