@@ -2,7 +2,7 @@ $(document).ready(function() {
   /* global moment */
 console.log("js is running for display");
   // blogContainer holds all of our posts
-  var postContainer = $(".post-container");
+  var postContainer = $("#post-container");
   var postCategorySelect = $("#category");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
@@ -30,7 +30,7 @@ console.log("js is running for display");
     if (UserId) {
       UserId = "/?User_id=" + UserId;
     }
-    $.get("/api/dashboard" + UserId, function(data) {
+    $.get("/api/post" + UserId, function(data) {
       //console.log("Posts", data);
       posts = data;
       if (!posts || !posts.length) {
@@ -46,7 +46,7 @@ console.log("js is running for display");
   function deletePost(id) {
     $.ajax({
       method: "DELETE",
-      url: "/api/dashboard" + id
+      url: "/api/post" + id
     })
       .then(function() {
         getPosts(postCategorySelect.val());
