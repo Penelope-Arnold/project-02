@@ -6,6 +6,11 @@ $.get("/api/posts", function(response) {
     image.attr("class", "tripImage");
     image.attr("id", i);
     image.attr("style", "padding: 10px");
+    image.addClass("img-fluid");
+    image.css({
+      height: "200px",
+      width: "300px"
+    })
 
     if (response[i].country.toLowerCase() === "japan") {
       $(".japan").append(image);
