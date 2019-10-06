@@ -43,7 +43,7 @@ app.use(express.json());
 // Static directory
 // app.use(express.static("public"));
 
-app.use("/views", express.static('views'))
+app.use("/views", express.static("views"));
 
 // Global variables (adding our own custom middleware)
 app.use(function(req, res, next) {
