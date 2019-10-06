@@ -70,9 +70,12 @@ console.log("js is running for display");
     var formattedDate = new Date(post.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     var newPostCard = $("<div>");
-    newPostCard.addClass("card");
+    newPostCard.addClass("card mb-3");
+    newPostCard.css({
+      width: "100%"
+    });
     var newPostCardHeading = $("<div>");
-    newPostCardHeading.addClass("card-header");
+    newPostCardHeading.addClass("card-title");
     var deleteBtn = $("<button>");
     deleteBtn.text("x");
     deleteBtn.addClass("delete btn btn-danger");
@@ -98,7 +101,7 @@ console.log("js is running for display");
     newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     newPostCardHeading.append(deleteBtn);
-    newPostCardHeading.append(editBtn);
+    //newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostUser);
     newPostCardBody.append(newPostBody);
