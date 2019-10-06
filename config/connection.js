@@ -16,6 +16,8 @@ var connection;
     password: process.env.DB_PASS,
     database: "blogger"
   });
+// }
+
 // Make connection.
 connection.connect(function(err) {
   if (err) {
