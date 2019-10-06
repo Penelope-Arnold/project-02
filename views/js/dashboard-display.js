@@ -63,7 +63,6 @@ $(document).ready(function() {
     postContainer.append(postsToAdd);
   }
 
-  
   // This function constructs a post's HTML
   function createNewRow(post) {
     console.log("this is the photo", post.photo);
@@ -82,12 +81,8 @@ $(document).ready(function() {
     var newPostDate = $("<small>");
     var newPostUser = $("<p>");
     var newPostPhoto = $("<img>");
-<<<<<<< HEAD
     newPostPhoto.addClass("img-fluid");
-=======
-    newPostPhoto.addClass("img-fluid")
 
->>>>>>> b2558cfea0c8983707addaf02a332ab6f3d6fd43
     newPostPhoto.attr("src", post.photo);
     newPostUser.text("Written by: " + post.User.name);
 
@@ -95,7 +90,7 @@ $(document).ready(function() {
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
     newPostTitle.text(post.city + " ");
-    
+
     ///
     newPostPhoto.append(post.photo);
     ///
@@ -114,7 +109,7 @@ $(document).ready(function() {
     newPostCard.data("post", post);
     return newPostCard;
   }
-  
+
   // This function figures out which post we want to delete and then calls deletePost
   function handlePostDelete() {
     var currentPost = $(this)
