@@ -61,7 +61,7 @@ require("./routes/post-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 //require("./routes/html-routes.js")(app);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.JAWSDB_URL || 5000;
 
 // Syncing our sequelize models and starting Express app
 db.sequelize.sync({ force: false }).then(function() {
