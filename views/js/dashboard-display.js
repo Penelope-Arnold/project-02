@@ -8,7 +8,7 @@ $(document).ready(function() {
   var postCategorySelect = $("#category");
   // Click events for the edit and delete buttons
 
-  $(document).on("click", "button.delete", handlePostDelete);
+  //$(document).on("click", "button.delete", handlePostDelete);
   // $(document).on("click", "button.edit", handlePostEdit);
   // Variable to hold our posts
   var posts;
@@ -63,7 +63,6 @@ $(document).ready(function() {
     postContainer.append(postsToAdd);
   }
 
-  
   // This function constructs a post's HTML
   function createNewRow(post) {
     console.log("this is the photo", post.photo);
@@ -82,7 +81,7 @@ $(document).ready(function() {
     var newPostDate = $("<small>");
     var newPostUser = $("<p>");
     var newPostPhoto = $("<img>");
-    newPostPhoto.addClass("img-fluid")
+    newPostPhoto.addClass("img-fluid");
 
     newPostPhoto.attr("src", post.photo);
     newPostUser.text("Written by: " + post.User.name);
@@ -91,7 +90,7 @@ $(document).ready(function() {
     newPostCardBody.addClass("card-body");
     var newPostBody = $("<p>");
     newPostTitle.text(post.city + " ");
-    
+
     ///
     newPostPhoto.append(post.photo);
     ///
@@ -109,24 +108,6 @@ $(document).ready(function() {
     newPostCard.append(newPostCardBody);
     newPostCard.data("post", post);
     return newPostCard;
-  }
-  
-  // This function figures out which post we want to delete and then calls deletePost
-  function handlePostDelete() {
-    var currentPost = $(this)
-      .parent()
-      .parent()
-      .data("post");
-    deletePost(currentPost.id);
-  }
-
-  // This function figures out which post we want to edit and takes it to the appropriate url
-  function handlePostEdit() {
-    var currentPost = $(this)
-      .parent()
-      .parent()
-      .data("post");
-    window.location.href = "/dashbard?post_id=" + currentPost.id;
   }
 
   // This function displays a message when there are no posts
