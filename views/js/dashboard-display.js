@@ -107,6 +107,10 @@ $(document).ready(function() {
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
     newPostCard.data("post", post);
+    newPostCard.attr("class", "row");
+    newPostCard.attr("class", "col-12");
+    newPostCard.attr("style", "border-bottom: solid 2px");
+
     return newPostCard;
   }
 
