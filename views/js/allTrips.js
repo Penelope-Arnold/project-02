@@ -32,8 +32,8 @@ $.get("/api/posts", function(response) {
 
     var image = $("<img>");
     image.css({
-      height: "300px",
-      width: "300px",
+      height: "250px",
+      width: "250px",
       "object-fit": "cover"
     });
     image.addClass("img-fluid");
