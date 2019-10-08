@@ -1,14 +1,15 @@
-// 1. Create new file named ".env"
-// 2. In the .env file, copy/paste the line below. Replace PASSWORD with your password (no quotes or anything)
-//     DB_PASS=PASSWORD
-// 3. Nobody sees your password, yahoo!
-
 require("dotenv").config();
 var mysql = require("mysql");
 var connection;
+var JAWSDB_URL =
+  "mysql://y0oer6sd4wtdtjdm:dqvlrliure82or5q@s3lkt7lynu0uthj8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/imh1whbm6zy1h310";
 
-
-  console.log(process.env.DB_PASS);
+// if JAWSDB_URL exists, then Database is JawsDB on Heroku
+if (JAWSDB_URL) {
+  connection = mysql.createConnection(JAWSDB_URL);
+}
+// else connect to local MySQL database
+else {
   connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
@@ -16,7 +17,7 @@ var connection;
     password: process.env.DB_PASS,
     database: "blogger"
   });
-// }
+}
 
 // Make connection.
 connection.connect(function(err) {
@@ -31,13 +32,41 @@ connection.connect(function(err) {
 module.exports = connection;
 
 //Create Connection to database with Sequelize
-var Sequelize = require("sequelize");
-
-var sequelize = new Sequelize("blogger", "root", process.env.DB_PASS, {
-  host: "localhost",
-  port: 3306,
-  dialect: "mysql"
-});
+if (JAWSDB_URL) {
+  var Sequelize = require("sequelize");
+  sequelize = new Sequelize(JAWSDB_URL, {
+    dialect: "mysql"
+  });
+} else {
+  var Sequelize = require("sequelize");
+  var sequelize = new Sequelize("blogger", "root", process.env.DB_PASS, {
+    host: "localhost",
+    port: 3306,
+    dialect: "mysql"
+  });
+}
 
 //export object
 module.exports = sequelize;
+
+// Create Connection to database with Sequelize
+// if (process.env.JAWSDB_URL) {
+//   var Sequelize = require("sequelize");
+//   var sequelize = new Sequelize(
+//     mysql.createConnection(process.env.JAWSDB_URL, {
+//       dialect: "mysql"
+//     })
+//   );
+// } else {
+//   var Sequelize = require("sequelize");
+//   var sequelize = new Sequelize(
+//     "imh1whbm6zy1h310",
+//     "y0oer6sd4wtdtjdm",
+//     "dqvlrliure82or5q",
+//     {
+//       host: "s3lkt7lynu0uthj8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+//       port: 3306,
+//       dialect: "mysql"
+//     }
+//   );
+// }
