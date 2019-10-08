@@ -33,16 +33,16 @@ connection.connect(function(err) {
 module.exports = connection;
 
 //Create Connection to database with Sequelize
-if (process.env.JAWSDB_URL) {
-  var Sequelize = require("sequelize");
-  var sequelize = new Sequelize(mysql.createConnection(process.env.JAWSDB_URL));
-} else {
-  var Sequelize = require("sequelize");
-  var sequelize = new Sequelize("blogger", "root", process.env.DB_PASS, {
-    host: "localhost",
-    port: 3306,
-    dialect: "mysql"
-  });
-}
+// if (process.env.JAWSDB_URL) {
+//   var Sequelize = require("sequelize");
+//   var sequelize = new Sequelize(mysql.createConnection(process.env.JAWSDB_URL));
+// } else {
+var Sequelize = require("sequelize");
+var sequelize = new Sequelize("blogger", "root", process.env.DB_PASS, {
+  host: "localhost",
+  port: 3306,
+  dialect: "mysql"
+});
+// }
 //export object
 module.exports = sequelize;
