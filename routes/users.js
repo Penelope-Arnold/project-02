@@ -11,7 +11,7 @@ const db = require("../models");
 router.get("/login", (req, res) => res.render("login"));
 
 //Register Page
-router.get("/register", (req, res) => res.render("Register"));
+router.get("/register", (req, res) => res.render("register"));
 
 // Register
 router.post("/register", (req, res) => {
