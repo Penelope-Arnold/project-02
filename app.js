@@ -61,13 +61,6 @@ require("./routes/post-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 //require("./routes/html-routes.js")(app);
 
-app.use(timeout(15000));
-app.use(haltOnTimedout);
-
-function haltOnTimedout(req, res, next) {
-  if (!req.timedout) next();
-}
-
 // Syncing our sequelize models and starting Express app
 db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
