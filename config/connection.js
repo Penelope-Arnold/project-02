@@ -47,13 +47,12 @@ if (JAWSDB_URL) {
       host: "s3lkt7lynu0uthj8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
       port: 3306,
       dialect: "mysql"
-  });
+    }
+  );
 }
 
 //export object
 module.exports = sequelize;
-
-// Create Connection to database with Sequelize
 // if (process.env.JAWSDB_URL) {
 //   var Sequelize = require("sequelize");
 //   var sequelize = new Sequelize(
