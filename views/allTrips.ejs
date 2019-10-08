@@ -1,30 +1,43 @@
 <html lang="en">
 
 <head>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<!-- jquery links -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <link rel="stylesheet" href="/public/styles/styles.css" type="text/ejs" />
-</head>
+
+<!-- fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+<!-- bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
+
+<!-- bootstrap cdn -->
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- materialize -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+
 </head>
 
 <body>
-  <!-- <div class="w3-container">  -->
-
-  <div class="navbar">
+<!-- Materialize navbar -->
+  <!-- <div class="navbar">
     <nav>
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">Trips</a>
         <ul id="nav-mobile" class="right">
           <li id=profileBtn><a href="/dashboard">My Profile</a></li>
-          <!-- <li id=loginBtn><a href="/users/login">Login</a></li> -->
           <li id=logoutBtn><a href="/users/logout">Logout</a></li>
         </ul>
       </div>
     </nav>
-  </div>
+  </div> -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="navbar-brand">ZoomZoom</div>
+    <a class="nav-item active" href="/dashboard" class="btn btn-secondary">My Profile</a>
+    <a class="nav-item active" href="/users/logout" class="btn btn-secondary">Logout</a>
+  </nav>
+  <h1 class="lead mb-3">Checkout everyone's trips!</h1>
 
   <ul class="collapsible">
     <li>
