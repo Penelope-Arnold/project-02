@@ -24,25 +24,34 @@
     <a class="nav-item active" href="/allTrips" class="btn btn-secondary">All Trips</a>
     <a class="nav-item active" href="/users/logout" class="btn btn-secondary">Logout</a>
   </nav>
-  <br>
   <section id="welcome-msg">
     <h1 class="lead mb-3">Welcome <%= name %>! </h1>
   </section>
-  <br>
+
   <div class="row">
     <div class="col-4">
+      <h2>Post a trip:</h2>
       <form id="cms">
         <div class="form-group">
-          <label for="title">City:</label>
+          <!-- <label for="title">City:</label> -->
           <input placeholder="Post City" type="text" class="form-control" id="city">
-          <label for="title">Country:</label>
+          <!-- <br /> -->
+          <!-- <label for="title">Country:</label> -->
           <input placeholder="Post Country" type="text" class="form-control" id="country">
-          <label for="title">Category:</label>
-          <input placeholder="Select Category" type="text" class="form-control" id="category">
+          <!-- <br /> -->
+          <!-- <label for="title">Category:</label> -->
+          <select placeholder="Select Category" type="text" class="form-control" id="category" style="height: 100%">
+            <option disabled selected value>Select Category</option>
+            <option value="Fun">Fun</option>
+            <option value="Family">Family</option>
+            <option value="Educational">Educational</option>
+            <option value="Party">Party</option>
+            </select>
           <br />
-          <label for="body">Description:</label>
+          <!-- <label for="body">Description:</label> -->
           <textarea placeholder="Post Description" class="form-control" rows="10" id="description"></textarea>
-          <label for="title">Link to Photo:</label>
+          <br />
+          <!-- <label for="title">Link to Photo:</label> -->
           <input placeholder="Upload Photo" type="text" class="form-control" id="photo">
           <div class="form-group">
 
