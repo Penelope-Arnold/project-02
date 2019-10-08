@@ -7,29 +7,29 @@ const db = require("../models");
 router.get("/", (req, res) => res.render("allTrips"));
 
 //Dashboard
-router.get("/dashboard", ensureAuthenticated, (req, res) => {
-  let nameObj = {};
-  db.User.findOne({
-    where: {
-      id: req.user
-    }
-  }).then(response => {
-    nameObj["name"] = response.name;
-    res.render("dashboard", nameObj);
-  });
-});
+// router.get("/dashboard", ensureAuthenticated, (req, res) => {
+//   let nameObj = {};
+//   db.User.findOne({
+//     where: {
+//       id: req.user
+//     }
+//   }).then(response => {
+//     nameObj["name"] = response.name;
+//     res.render("dashboard", nameObj);
+//   });
+// });
 
 //allTrips page
-router.get("/allTrips", ensureAuthenticated, (req, res) =>
-  res.render("allTrips")
-);
-
-// router.get("/dashboard", (req, res) =>
-//   res.render("dashboard")
-// );
-
-// router.get("/allTrips", (req, res) =>
+// router.get("/allTrips", ensureAuthenticated, (req, res) =>
 //   res.render("allTrips")
 // );
+
+router.get("/dashboard", (req, res) =>
+  res.render("dashboard")
+);
+
+router.get("/allTrips", (req, res) =>
+  res.render("allTrips")
+);
 
 module.exports = router;
