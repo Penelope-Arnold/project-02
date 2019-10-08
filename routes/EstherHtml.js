@@ -4,7 +4,7 @@ const flash = require("connect-flash");
 const { ensureAuthenticated } = require("../config/auth");
 const db = require("../models");
 //Welcome page
-router.get("/", (req, res) => res.render("allTrips"));
+router.get("/", (req, res) => res.render("/allTrips"));
 
 //Dashboard
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
@@ -15,13 +15,13 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
     }
   }).then(response => {
     nameObj["name"] = response.name;
-    res.render("dashboard", nameObj);
+    res.render("/dashboard", nameObj);
   });
 });
 
 //allTrips page
 router.get("/allTrips", ensureAuthenticated, (req, res) =>
-  res.render("allTrips")
+  res.render("/allTrips")
 );
 
 module.exports = router;
