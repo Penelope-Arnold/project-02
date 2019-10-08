@@ -109,7 +109,7 @@ $(document).ready(function() {
       url: "/api/posts",
       data: post
     }).then(function() {
-      window.location.href = "/blog";
+      window.location.href = "/dashboard";
     });
   }
 });
