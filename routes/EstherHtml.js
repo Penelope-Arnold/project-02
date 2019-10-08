@@ -7,8 +7,7 @@ const db = require("../models");
 router.get("/", (req, res) => res.render("allTrips"));
 
 //Dashboard
-// router.get("/dashboard", ensureAuthenticated, (req, res) => {
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard", ensureAuthenticated, (req, res) => {
   let nameObj = {};
   db.User.findOne({
     where: {
@@ -21,7 +20,8 @@ router.get("/dashboard", (req, res) => {
 });
 
 //allTrips page
-// router.get("/allTrips", ensureAuthenticated, (req, res) =>
-router.get("/allTrips", (req, res) => res.render("allTrips"));
+router.get("/allTrips", ensureAuthenticated, (req, res) =>
+  res.render("allTrips")
+);
 
 module.exports = router;
