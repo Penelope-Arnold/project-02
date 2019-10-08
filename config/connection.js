@@ -6,8 +6,8 @@
 require("dotenv").config();
 var mysql = require("mysql");
 var connection;
-
 if (process.env.JAWSDB_URL) {
+  // Database is JawsDB on Heroku
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   console.log(process.env.DB_PASS);

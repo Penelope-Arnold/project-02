@@ -4,8 +4,8 @@ const passport = require("passport");
 const flash = require("connect-flash");
 const session = require("express-session");
 const app = express();
-
-var mysql = require("mysql2");
+const PORT = process.env.PORT || 5000;
+// var mysql = require("mysql2");
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -61,7 +61,12 @@ require("./routes/post-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 //require("./routes/html-routes.js")(app);
 
-const PORT = process.env.PORT || 5000;
+app.use(timeout(15000));
+app.use(haltOnTimedout);
+
+function haltOnTimedout(req, res, next) {
+  if (!req.timedout) next();
+}
 
 // Syncing our sequelize models and starting Express app
 db.sequelize.sync({ force: false }).then(function() {
