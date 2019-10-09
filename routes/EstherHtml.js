@@ -24,4 +24,12 @@ router.get("/allTrips", ensureAuthenticated, (req, res) =>
   res.render("allTrips")
 );
 
+// router.get("/dashboard", (req, res) =>
+//   res.render("dashboard")
+// );
+
+// router.get("/allTrips", (req, res) =>
+//   res.render("allTrips")
+// );
+
 module.exports = router;
